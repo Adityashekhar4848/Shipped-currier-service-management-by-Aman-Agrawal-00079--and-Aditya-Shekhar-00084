@@ -1,0 +1,438 @@
+/*! Invoice Templates @author: Invoicebus @email: info@invoicebus.com @web: https://invoicebus.com @version: 1.0.0 @updated: 2015-02-27 16:02:34 @license: Invoicebus */
+/* Reset styles */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic,cyrillic-ext,latin,greek-ext,greek,latin-ext,vietnamese");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* Invoice styles */
+/**
+ * DON'T override any styles for the <html> and <body> tags, as this may break the layout.
+ * Instead wrap everything in one main <div id="container"> element where you may change
+ * something like the font or the background of the invoice
+ */
+html, body {
+  /* MOVE ALONG, NOTHING TO CHANGE HERE! */
+}
+
+/** 
+ * IMPORTANT NOTICE: DON'T USE '!important' otherwise this may lead to broken print layout.
+ * Some browsers may require '!important' in oder to work properly but be careful with it.
+ */
+
+
+.clearfix {
+  display: block;
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+b, strong, .bold {
+  font-weight: bold;
+}
+
+#container {
+  font: normal 13px/1.4em 'Open Sans', Sans-serif;
+  margin: 0 auto;
+  min-height: 558px;
+  background: #fff url("../img/bg.png") 0 0 no-repeat;
+  background-size: 100% auto;
+  color: #5B6165;
+  position: relative;
+}
+
+#memo {
+  padding-top: 50px;
+  margin: 0 110px 0 60px;
+  border-bottom: 1px solid #ddd;
+  height: 115px;
+}
+#memo .logo {
+  float: left;
+  margin-right: 20px;
+}
+#memo .logo img {
+  width: 150px;
+  height: 100px;
+}
+#memo .company-info {
+  float: right;
+
+  padding-left: 50px;
+}
+#memo .company-info > div:first-child {
+  line-height: 1em;
+  font-weight: bold;
+  font-size: 22px;
+  color: #fd7e14;
+}
+#memo .company-info span {
+  font-size: 11px;
+  display: inline-block;
+  min-width: 20px;
+}
+#memo:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+#invoice-title-number {
+  font-weight: bold;
+  margin: 30px 0;
+}
+#invoice-title-number span {
+  line-height: 0.88em;
+  display: inline-block;
+  min-width: 20px;
+}
+#invoice-title-number #title {
+  text-transform: uppercase;
+  padding: 0px 2px 0px 60px;
+  font-size: 50px;
+  background: #fd7e14;
+  color: white;
+}
+#invoice-title-number #number {
+  margin-left: 10px;
+  font-size: 35px;
+  position: relative;
+  top: -5px;
+}
+
+#client-info {
+  float: left;
+  margin-left: 60px;
+  min-width: 220px;
+}
+#client-info > div {
+  margin-bottom: 3px;
+  min-width: 20px;
+}
+#client-info span {
+  display: block;
+  min-width: 20px;
+}
+#client-info > span {
+  text-transform: uppercase;
+}
+
+table {
+  table-layout: fixed;
+}
+table th, table td {
+  vertical-align: top;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+
+#items {
+  margin: 35px 30px 0 30px;
+}
+#items .first-cell, #items table th:first-child, #items table td:first-child {
+  width: 40px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: right;
+}
+#items table {
+  border-collapse: separate;
+  width: 100%;
+}
+#items table th {
+  font-weight: bold;
+  padding: 5px 8px;
+  text-align: right;
+  background: #B32C39;
+  color: white;
+  text-transform: uppercase;
+}
+#items table th:nth-child(2) {
+  width: 30%;
+  text-align: left;
+}
+#items table th:last-child {
+  text-align: right;
+}
+#items table td {
+  padding: 9px 8px;
+  text-align: right;
+  border-bottom: 1px solid #ddd;
+}
+#items table td:nth-child(2) {
+  text-align: left;
+}
+
+#sums {
+  margin: 25px 30px 0 0;
+  background: url("../img/total-stripe-gold.png") right bottom no-repeat;
+}
+#sums table {
+  float: right;
+}
+
+#invoice-info {
+  float: left;
+  margin: 50px 40px 0 60px;
+}
+#invoice-info > div > span {
+  display: inline-block;
+  min-width: 20px;
+  min-height: 18px;
+  margin-bottom: 3px;
+}
+#invoice-info > div > span:first-child {
+  color: black;
+}
+#invoice-info > div > span:last-child {
+  color: #aaa;
+}
+#invoice-info:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+#terms {
+  float: left;
+  margin-top: 50px;
+}
+#terms .notes {
+  min-height: 30px;
+  min-width: 50px;
+  color: #B32C39;
+}
+#terms .payment-info div {
+  margin-bottom: 3px;
+  min-width: 20px;
+}
+
+.thank-you {
+  margin: 10px 0 30px 0;
+  display: inline-block;
+  min-width: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 0.88em;
+  float: right;
+  padding: 0px 30px 0px 2px;
+  font-size: 50px;
+  background: #fd7e14;
+  color: white;
+}
+
+.ib_bottom_row_commands {
+  margin-left: 30px !important;
+}
+
+/**
+ * If the printed invoice is not looking as expected you may tune up
+ * the print styles (you can use !important to override styles)
+ */
+
+
+.table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table td,.table th{
+  padding:12px 15px;
+  border:1px solid #ddd;
+  text-align: center;
+  font-size:16px;
+}
+
+.table th{
+  background-color: #fd7e14;
+  color:#ffffff;
+}
+
+.table tbody tr:nth-child(even){
+  background-color: #f5f5f5;
+}
+
+/*responsive*/
+
+@media(max-width: 500px){
+  .table thead{
+    display: none;
+  }
+
+  .table, .table tbody, .table tr, .table td{
+    display: block;
+    width: 100%;
+  }
+  .table tr{
+    margin-bottom:15px;
+  }
+  .table td{
+    position: relative;
+    padding-left: 150px;
+  }
+  .table td::before{
+    content: attr(data-label);
+    position: absolute;
+    left:0;
+    width: 50%;
+    padding-left:15px;
+    font-size:15px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .buttonbill {
+  background-color: #fd7e14;
+  border: 2px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+   width: 150px;
+   border-radius: 10px;
+   margin-left: 36%;
+   margin-bottom: 10px;
+}
+
+.buttonbill2 {
+  background-color: #fd7e14;
+  border: 2px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+   width: 150px;
+   border-radius: 10px;
+
+}
+
+
+
+
+@media(max-width: 500px)
+{
+  .buttonbill {
+  background-color: #fd7e14;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  margin-left: 20%;
+}
+
+  .buttonbill2 {
+  background-color: #fd7e14;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+    margin-bottom: 30px;
+  margin-left: 30%;
+
+}
+
+
+
+}
+
+@media(max-width: 769px) and (min-width: 500px)
+{
+  .buttonbill {
+  background-color: #fd7e14;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  margin-left: 25%;
+}
+
+  .buttonbill2 {
+  background-color: #fd7e14;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+    margin-bottom: 30px;
+
+}
+
+}
