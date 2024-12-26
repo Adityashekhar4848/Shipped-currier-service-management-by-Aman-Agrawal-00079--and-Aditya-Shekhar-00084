@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CONFIRMATION</title>
+</head>
+
+<style type="text/css">
+	
+.thank h1 {
+
+	font-size: 50px;
+	font-family: cursive;
+	object-position: center;
+	text-align: center;
+	color: #fd7e14;
+	text-shadow: 10px;
+	animation-name: thank;
+
+}
+
+.thank p {
+	font-size: 20px;
+	font-weight: 5px;
+	object-position: center;
+	color: black;
+	text-align: center;
+}
+
+.thank a {
+
+	object-position: center;
+	display: flex;
+	margin:auto;
+    color: #000;
+    width: 40px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    text-shadow: 5px;
+	}
+
+
+
+
+
+
+
+</style>
+<body>
+<div class="thank">
+		<h1 id="thankyou">THANK YOU !!</h1>
+		<p>We will contact you soon.</p>
+		<a id="button" href="index.html">HOME</a>
+
+</div>
+
+
+
+
+<script>
+
+setInterval(
+  function() {
+    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    document.getElementById("button").style.color = "#" + randomColor;
+  }, 1000);
+
+
+
+
+
+})
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+
+
+</html>
